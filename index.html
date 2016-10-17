@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<title>易付云支付</title>
+<!--框架css-->
+<link href="css/common_h5.css" rel="stylesheet" type="text/css"/><!--公共css-->
+<!--附加css-->
+<link href="css/xsda.css" rel="stylesheet" type="text/css"/>
+<!--公共js-->
+<script language="JavaScript" charset="utf-8" src="bil/jquery-1.9.1.min.js"></script>
+</head>
+<body class="qkybody h100 po_ab">
+
+<!--头部标准，一般固定-->
+<div class="qkyh5_header noshadow">
+    <div class="qkyh5_topbox ub ub-ac ba_ff co_z6 pa_lr16 br_b br_wx">
+       <div class="wd_30 mr10"><img src="images/YFYLOGO2.png" class="wd_100"></div>
+       <div class="ub-f1 fz_18   pa_tb12 fz_we">易付云.值得托付</div>
+    </div>
+</div>
+
+<!--中部标准，一般放列表-->
+<div class="qkyh5_main pb0">
+	<!--<div class="co_z6 fz_14 pa_lr14 mt10">亲爱的用户.您正在使用</div>-->
+   <div class="pro_box pa_lr14 ba_ff br_b br_t br_wx mt10">
+   	   <div class="ub ub-ac pt14  pb8 br_db  br_ddd">
+       <div class="pro_txtbox ub-f1">
+           <div class=" fz_14 co_z9">亲爱的用户.您正在使用</div>
+           <div class=" pa_tb20 fz_20 co_z6 fz_we">“超有趣滑雪机”</div> 
+       </div>
+       <div class=" wd_46"><img src="images/hxj.jpg" class="wd_100"></div>
+       </div>
+       <div class=" fz_14 co_z6 wd_100">
+           <span class="iskuai pt14"><i class="appicon mr6">&#xe60a;</i>机器码：123456789</span>
+           <span class="iskuai pb14 pt8"><i class="appicon mr6">&#xe60b;</i>地址：中山市利和广场中庭2号机</span>
+       </div>
+   </div>
+   <div class="pro_zfbox ba_ff br_b br_t br_wx mt10 pb10">
+       <div class="pa_lr16 clear3 pa_tb14">
+           <div class="fl fz_16 lh co_z6 fz_we">请选择购买金额</div>
+           <span class="fr fz_16 co_z3 lh ml4"><i class="appicon mr6 co_wx fz_22">&#xe607;</i>微信支付认证</span>
+       </div>
+       <div class="pro_zfcho clear3">
+       <a>5元=6币</a><a class="cur">10元=12币</a><a>20元=25币</a><a>50元=60币</a><a>2元=2币</a>
+       </div>
+   </div>
+   <a class="pro_zfbut po_r zf"><i class="appicon fz_we zf_icon">&#xe604;</i>支付</a>
+</div>
+
+
+
+<script>
+$(function(){
+	qkyh5_topa_header(0,1);	
+	pro_zfcho();
+	$(".pro_zfbut.zf").click(function(){		
+		$(".zf_icon").addClass("open");
+		setTimeout(function(){
+			window.location.href="index_zf.html"; 
+			},2000);
+	});
+});
+function pro_zfcho(){
+	$(".pro_zfcho a").each(function(i) {
+		$(this).click(function(){
+			$(this).addClass("cur").siblings().removeClass("cur")
+		}); 
+    });
+}
+
+//自动变化以头部的距离，i为想离头部有多远，可以负数
+function qkyh5_topa_header(i,jq){
+	if(jq==1){
+	var titHeight = $('.qkyh5_header').height()+i;
+	}else{
+	var titHeight = $('.qkyh5_header').offset().height+i;}
+	//console.log(titHeight);
+	$(".qkyh5_main").css({"paddingTop":titHeight+"px"});
+}
+</script>
+</body>
+</html>
